@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep</title>
+</head>
+<body>
+<h2>
+    <a th:href="@{/allProducts}">Wszystkie produkty</a>
+</h2>
+<h4>
+
+    <a th:href="@{/lista?kategoria=spozywcze}">art. spożywcze</a> <br/>
+    <a th:href="@{/lista?kategoria=domowe}">art. gosp. domowego</a><br/>
+    <a th:href="@{/lista?kategoria=inne}">art. inne</a><br/>
+</h4>
+
+<h3>Dodaj produkt do sklepu</h3>
+<form method="post" th:action="@{/add}" th:object="${newProduct}">
+    <input type="text" th:field="*{name}"> <br>
+    <input type="number" th:field="*{price}"> <br>
+    <input type="text" th:field="*{category}"> <br>
+    <input type="submit" value="Dodaj"/>
+</form>
+
+</body>
+</html>
