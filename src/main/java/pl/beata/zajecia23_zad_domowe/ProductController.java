@@ -16,6 +16,7 @@ public class ProductController {
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("newProduct", new Product());
+        model.addAttribute("categories", Category.values());
         return "index";
     }
 
@@ -35,7 +36,7 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public String addProduct(Product product) {
+    public String addProduct(Product product, @RequestParam(required = true) String name, @RequestParam(required = true) double price, @RequestParam(required = true) Category category) {
             productRepository.addProduct(product);
         return "redirect:/allProducts";
     }
