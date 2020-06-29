@@ -17,11 +17,11 @@
 
 <h3>Dodaj produkt do sklepu</h3>
 <form method="post" th:action="@{/add}" th:object="${newProduct}">
-    <input type="text" th:field="*{name}" required="true"> <br>
-    <input type="number" th:field="*{price}" required="true"> <br>
+    <input type="text" th:field="*{name}" required="required"> <br>
+    <input type="number" th:field="*{price}" required="required"> <br>
     <select name="category">
         <option th:each="enumCategory : ${categories}"
-                th:value="${enumCategory}" th:text="${enumCategory}" th:field="*{category}" required="true"></option>
+                th:value="${enumCategory}" th:text="${enumCategory}" th:field="*{category}" required="required"></option>
     </select>
     <input type="submit" value="Dodaj"/>
 </form>

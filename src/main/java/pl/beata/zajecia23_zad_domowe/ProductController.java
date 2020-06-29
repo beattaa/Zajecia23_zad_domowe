@@ -36,8 +36,8 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public String addProduct(Product product, @RequestParam(required = true) String name, @RequestParam(required = true) double price, @RequestParam(required = true) Category category) {
-            productRepository.addProduct(product);
+    public String addProduct(@RequestParam(required = true) String name, @RequestParam(required = true) double price, @RequestParam(required = true) Category category) {
+            productRepository.addProduct(new Product(name, price,category));
         return "redirect:/allProducts";
     }
 
